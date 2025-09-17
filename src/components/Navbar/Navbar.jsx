@@ -1,137 +1,41 @@
-// components/Navbar.jsx
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
-import { FaChevronDown, FaChevronUp, FaSearch } from 'react-icons/fa';
 
-export default function Navbar() {
-  const [aboutOpen, setAboutOpen] = useState(false);
-
+const Navbar = () => {
   return (
-    <section>
-      <nav className="bg-base-100 shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
-            CompanyLogo
-          </Link>
+    <header className="bg-white shadow-sm">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <img src="/assets/logo.svg" alt="Car Doctor" className="w-10 h-10" />
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-6 items-center">
-            <li>
-              <Link href="/" className="hover:text-primary">
-                Home
-              </Link>
-            </li>
-
-            {/* About Dropdown */}
-            <li className="relative">
-              <button
-                onClick={() => setAboutOpen(!aboutOpen)}
-                aria-haspopup="true"
-                aria-expanded={aboutOpen}
-                className="hover:text-primary flex items-center gap-1"
-              >
-                About Us{' '}
-                {aboutOpen ? (
-                  <FaChevronUp className="w-4 h-4" />
-                ) : (
-                  <FaChevronDown className="w-4 h-4" />
-                )}
-              </button>
-              {aboutOpen && (
-                <ul className="absolute top-full left-0 bg-base-100 shadow-md mt-1 w-60 rounded-md p-2 space-y-2">
-                  <li>
-                    <Link
-                      href="/about#history"
-                      className="block hover:text-primary"
-                    >
-                      Detailed Company History
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about#mission"
-                      className="block hover:text-primary"
-                    >
-                      Mission & Vision
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about#leadership"
-                      className="block hover:text-primary"
-                    >
-                      Leadership Profiles
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about#sectors"
-                      className="block hover:text-primary"
-                    >
-                      Overview of Business Sectors
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-
-            <li>
-              <Link href="/services" className="hover:text-primary">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:text-primary">
-                Business/Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" className="hover:text-primary">
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="/project-gallery" className="hover:text-primary">
-                Project Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-primary">
-                Contact
-              </Link>
-            </li>
-
-            {/* Search Icon */}
-            <li>
-              <button className="hover:text-primary">
-                <FaSearch size={18} />
-              </button>
-            </li>
-          </ul>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <label htmlFor="menu-toggle" className="cursor-pointer">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </label>
-          </div>
+          <span className="font-bold text-xl text-gray-800">Car Doctor</span>
         </div>
-      </nav>
-    </section>
+
+        {/* Nav Links */}
+        <nav className="hidden md:flex space-x-8 text-gray-700 font-medium">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+
+        {/* Icons + Button */}
+        <div className="flex items-center space-x-5">
+          <button>
+            <i className="ri-shopping-bag-line text-xl"></i>
+          </button>
+          <button>
+            <i className="ri-search-line text-xl"></i>
+          </button>
+          <button className="border border-red-500 text-red-500 px-4 py-2 rounded-md font-semibold hover:bg-red-500 hover:text-white transition">
+            Appointment
+          </button>
+        </div>
+      </div>
+    </header>
   );
-}
+};
+
+export default Navbar;
