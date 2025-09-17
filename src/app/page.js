@@ -1,13 +1,15 @@
-import Image from "next/image";
-import Banner from "./components/Banner/Banner";
+import AboutUs from './components/AboutUs/AboutUs';
+import Banner from './components/Banner/Banner';
 
 export default function Home() {
   return (
-
     <section>
       <div>
         <Banner></Banner>
       </div>
-   </section>
+      <div className=''>
+        <AboutUs></AboutUs>
+      </div>
+    </section>
   );
 }
