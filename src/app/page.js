@@ -1,5 +1,6 @@
 import AboutUs from './components/AboutUs/AboutUs';
 import Banner from './components/Banner/Banner';
+import ServicesSection from './components/ServicesSection/ServicesSection';
 
 export default function Home() {
   return (
@@ -7,8 +8,11 @@ export default function Home() {
       <div>
         <Banner></Banner>
       </div>
-      <div className=''>
+      <div className="">
         <AboutUs></AboutUs>
+      </div>
+      <div className="">
+        <ServicesSection></ServicesSection>
       </div>
     </section>
   );
